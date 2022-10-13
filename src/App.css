@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
 :root {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 /* General */
@@ -36,6 +38,7 @@ select {
   color: #113;
   text-align: center;
   background-color: beige;
+  font-family: "Inter", sans-serif;
 }
 
 option {
