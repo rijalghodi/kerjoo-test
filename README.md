@@ -1,6 +1,6 @@
 # Test Kerjoo
 
-## Deskription
+## Description
 
 Ini adalah hasil kerja saya dalam Test Masuk Perusahaan Kerjoo, Yogyakarta
 
