@@ -7,7 +7,6 @@ import { TestGrid } from "./components/TestGrid/TestGrid";
 import { TestDropdown } from "./components/TestDropdown/TestDropdown";
 
 function App() {
-  const dispatch = useDispatch();
   return (
     <Router>
       <Route path={"/test-grid"}>

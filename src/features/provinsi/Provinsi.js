@@ -1,28 +1,50 @@
-// import { getProvinsi } from "../../helpers/helpers";
+import { addProvinsi, changeProvinsi, selectProvinsi } from "./provinsiSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
-const url = "https://api.kerjoo.com/api/v1/reference/provinces";
-
-const getProvinsi = () => {
-  fetch(url, { cache: "no-cache" })
-    .then(
-      (response) => {
-        if (response.ok) {
-          return response.json(); //
-        }
-        throw new Error("Request failed!");
-      },
-      (networkError) => {
-        console.log(networkError.message);
-      }
-    )
-    .then((jsonResponse) => {
-      jsonResponse.map((provinsi) => {
-        return <option key={provinsi.id}>{provinsi.name}</option>;
-      });
-    });
-};
-
 export function Provinsi() {
-  return <select name="provinsi">{getProvinsi}</select>;
+  const dispatch = useDispatch();
+  // const provinsi_id = useSelector(selectSelectedProvinsiID);
+  const provinsi = useSelector(selectProvinsi);
+
+  const fetchProv = () => {
+    fetch("https://api.kerjoo.com/api/v1/reference/provinces")
+      .then((response) => response.json())
+      .then((jsonResponse) => {
+        dispatch(addProvinsi(jsonResponse));
+      });
+  };
+
+  // const fetchKab = () => {
+  //   fetch(`https://api.kerjoo.com/api/v1/reference/regencies_of/${provinsi_id}`)
+  //     .then((response) => response.json())
+  //     .then((jsonResponse) => {
+  //       dispatch(addKabupaten(jsonResponse));
+  //     });
+  // };
+
+  useEffect(() => {
+    fetchProv();
+  }, []);
+
+  // useEffect(() => {
+  //   fetchKab();
+  // }, [provinsi_id]);
+
+  const handleChange = ({ target }) => {
+    var prov = provinsi.filter(function (item) {
+      return item.name === target.value;
+    });
+    dispatch(changeProvinsi({ id: prov[0].id, name: target.value }));
+  };
+
+  return (
+    <select name="provinsi" onChange={handleChange}>
+      {provinsi.map((prov) => (
+        <option key={prov["id"]} id={prov["name"]}>
+          {prov["name"]}
+        </option>
+      ))}
+    </select>
+  );
 }

@@ -38,6 +38,10 @@ select {
   background-color: beige;
 }
 
+option {
+  color: black;
+}
+
 .my-container {
   margin: 50px auto;
   width: 90%;
