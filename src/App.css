@@ -1,39 +1,44 @@
-.App {
+:root {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* General */
+
+button:hover {
+  background-color: #113;
+  color: beige;
+}
+
+button {
+  cursor: pointer;
+  width: 6rem;
+  padding: 0.5rem 0;
+  border-radius: 3rem;
+  border: 2px solid #113;
+  background-color: beige;
   text-align: center;
+  transition: background-color 0.25s;
+  color: #113;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input,
+select {
+  width: 100%;
+  padding: 0.7rem;
+  border: 2px solid #113;
+  border-radius: 6px;
+  margin: 0 auto;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  color: #113;
+  text-align: center;
+  background-color: beige;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
-}
-
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-}
-
-.App-link {
-  color: rgb(112, 76, 182);
-}
-
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.my-container {
+  margin: 50px auto;
+  width: 90%;
 }

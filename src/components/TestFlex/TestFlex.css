@@ -1,0 +1,51 @@
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.input-search {
+  flex: 1 1 400px;
+}
+
+.tahun-dropdown {
+  flex: 1 1 100px;
+}
+
+@media only screen and (max-width: 900px) {
+  .flex-container {
+    flex-wrap: wrap;
+  }
+  .buttons {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .input-search {
+    flex-basis: 50%;
+  }
+
+  .tahun-dropdown {
+    flex-basis: 20%;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .flex-container {
+    flex-direction: column;
+  }
+  .input-search {
+    width: 100%;
+  }
+
+  .tahun-dropdown {
+    width: 100%;
+  }
+}
